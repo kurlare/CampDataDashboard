@@ -1,4 +1,4 @@
-To run the app, create a new directory (campdashboard app) and unzip the files there.
+To run the app, create a new directory and place the files there.
 Open RStudio and set your working directory to "C:/.../campdashboard app".  
 Open the server.R file in RStudio, and run the line 9 'source()' function.  
 You may have to install the packages 'DT', 'Shiny', 'ggplot2', 'mice', and 'dplyr'.
