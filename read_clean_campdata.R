@@ -23,6 +23,10 @@ tempData <- mice(campdata,m=5,maxit=10,meth='pmm',seed=500)
 ## Camp Data with imputed values.
 campdata <- complete(tempData, 1)  
 
+## Scramble names
+campdata$Name <- sample(campdata$Name, nrow(campdata))
+campdata$Child_Number <- sample(campdata$Child_Number, nrow(campdata))
+
 ## Add bunk variable and associated values
 campdata$Bunk <- campdata$Name
 campdata$Bunk[campdata$Bunk > 15100 & campdata$Bunk < 15200] <- 1

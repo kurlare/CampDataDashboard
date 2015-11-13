@@ -21,7 +21,7 @@ shinyServer(function(input, output) {
     # Generate an HTML table view of the data
     output$data_table <- renderDataTable({
         datasetInput()
-        }, filter = 'top')
+        }, filter = 'top', rownames = FALSE)
     
     # download the filtered data
     output$downloadData = downloadHandler(filename = 
@@ -103,19 +103,19 @@ shinyServer(function(input, output) {
         nearPoints(datasetInput(), input$plot_click)
         brushedPoints(datasetInput(), input$plot_brush)
         
-    }, filter = 'top')
+    }, filter = 'top', rownames = FALSE)
     
     output$position2 <- renderDataTable({
         nearPoints(datasetInput(), input$plot_click)
         brushedPoints(datasetInput(), input$plot_brush)
             
-    })
+    }, filter = 'top', rownames = FALSE)
     
     output$position3 <- renderDataTable({
         nearPoints(datasetInput(), input$plot_click)
         brushedPoints(datasetInput(), input$plot_brush)
         
-    })
+    }, filter = 'top', rownames = FALSE)
     
     
 
