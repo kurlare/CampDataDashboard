@@ -1,10 +1,11 @@
+Note:  To view this app on the web, go to:  https://kurlare.shinyapps.io/dashboard
+
 To run the app, create a new directory (i.e. 'campdashboard app') and place the files there.
 Open RStudio and set your working directory to "C:/.../campdashboard app".  
-Open the server.R file in RStudio, and run the line 9 'source()' function.  
 You may have to install the packages 'DT', 'Shiny', 'ggplot2', 'mice', and 'dplyr'.
-Use 'install.packages("package_name") to install the packages.
+Use 'install.packages("package_name") to install the packages, then library(package_name).
 
-Finally, click on the drop down menu for the 'Run App' button.  Select 'Run External',
+Finally, open server.R or ui.R in RStudio, and click on the drop down menu for the 'Run App' button.  Select 'Run External',
 and the App should load.  Have fun!
 
 
