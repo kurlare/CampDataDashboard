@@ -7,6 +7,10 @@ shinyUI(fluidPage(theme = "bootstrap.css",
                   
                   sidebarLayout(
                       sidebarPanel(
+                          helpText("Note: Reactive calculations are done under",
+                                   "the 'model' tab.  The coefficients of a linear",
+                                   "model will change based on your selection",
+                                   "for the X and Y variables."),
                           
                           selectInput("dataset", "Choose a dataset:", 
                                       choices = c("Full", "Reduced")

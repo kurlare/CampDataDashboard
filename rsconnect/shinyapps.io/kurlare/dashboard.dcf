@@ -2,6 +2,6 @@ name: dashboard
 account: kurlare
 server: shinyapps.io
 appId: 68853
-bundleId: 310989
+bundleId: 311047
 url: https://kurlare.shinyapps.io/dashboard
-when: 1447594218.68309
+when: 1447603507.89541
