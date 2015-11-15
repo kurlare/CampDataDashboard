@@ -1,5 +1,7 @@
 
 
+options(shiny.error=browser)
+
 shinyUI(fluidPage(theme = "bootstrap.css",
                   titlePanel(strong("Camp Data Dashboard")),
                   
@@ -35,10 +37,14 @@ shinyUI(fluidPage(theme = "bootstrap.css",
                           
                       ),
                       mainPanel(
+                          tags$style(type="text/css",
+                                           ".shiny-output-error { visibility: hidden; }",
+                                           ".shiny-output-error:before { visibility: hidden; }"
+                      ),
                           tabsetPanel(type = "tabs", 
                                       tabPanel("Table", 
                                                
-                                               dataTableOutput('data_table')),
+                                               DT::dataTableOutput('data_table')),
                                       
                                       tabPanel("Plot",
                                                radioButtons("plot_type", "Select Plot Type:",
@@ -48,21 +54,18 @@ shinyUI(fluidPage(theme = "bootstrap.css",
                                                conditionalPanel(
                                                    condition = "input.plot_type == 'point'", 
                                                    plotOutput("plot1",
-                                                              click = "plot_click",
                                                               brush = "plot_brush"),
-                                                   dataTableOutput('position')),
+                                                   DT::dataTableOutput('position')),
                                                conditionalPanel(
                                                    condition = "input.plot_type == 'boxplot'",
                                                    plotOutput("plot2",
-                                                              click = "plot_click",
                                                               brush = "plot_brush"),
-                                                   dataTableOutput('position2')),
+                                                   DT::dataTableOutput('position2')),
                                                conditionalPanel(
                                                    condition = "input.plot_type == 'line'",
                                                    plotOutput("plot3",
-                                                              click = "plot_click",
                                                               brush = "plot_brush"),
-                                                   dataTableOutput('position3')
+                                                   DT::dataTableOutput('position3')
                                                )
                                                
                                       ),

@@ -42,3 +42,5 @@ leave_out <- c( 15101,15103, 15104, 15108, 15111, 15112, 15204,15205, 15209, 152
                 15701, 15707, 15708, 15709, 15712)
 
 reduced <- filter(campdata, ! Name %in% leave_out)
+
+write.csv(campdata, file = "dataset1.csv")

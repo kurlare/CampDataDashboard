@@ -2,15 +2,25 @@
 library(shiny)
 library(DT)
 library(ggplot2)
+library(dplyr)
 
 
-source("read_clean_campdata.R")
-campdata <- campdata[sample(nrow(campdata)),]
-reduced <- reduced[sample(nrow(campdata)),]
+options(shiny.error=browser)
 
+#source("read_clean_campdata.R", local = T)
+#options(shiny.error=browser)
+#campdata
+#reduced
 # Define server logic 
 shinyServer(function(input, output) {
+    campdata <- read.csv("dataset1.csv", header = TRUE)
+    campdata <- campdata[, -1]
+    leave_out <- c( 15101,15103, 15104, 15108, 15111, 15112, 15204,15205, 15209, 15210,  15212,
+                    15301, 15307, 15308,15309, 15310, 15403, 15405,15503, 15504,15611,
+                    15701, 15707, 15708, 15709, 15712)
     
+    reduced <- filter(campdata, ! Name %in% leave_out)
+             
     # Return the requested dataset
     datasetInput <- reactive({
         switch(input$dataset,
@@ -19,7 +29,7 @@ shinyServer(function(input, output) {
     })
     
     # Generate an HTML table view of the data
-    output$data_table <- renderDataTable({
+    output$data_table <- DT::renderDataTable({
         datasetInput()
         }, filter = 'top', rownames = FALSE)
     
@@ -99,23 +109,23 @@ shinyServer(function(input, output) {
     
     
     ## Identify row of outlier
-    output$position <- renderDataTable({
+    output$position <- DT::renderDataTable({
         nearPoints(datasetInput(), input$plot_click)
         brushedPoints(datasetInput(), input$plot_brush)
         
-    }, filter = 'top', rownames = FALSE)
+    })
     
-    output$position2 <- renderDataTable({
+    output$position2 <- DT::renderDataTable({
         nearPoints(datasetInput(), input$plot_click)
         brushedPoints(datasetInput(), input$plot_brush)
             
-    }, filter = 'top', rownames = FALSE)
+    })
     
-    output$position3 <- renderDataTable({
+    output$position3 <- DT::renderDataTable({
         nearPoints(datasetInput(), input$plot_click)
         brushedPoints(datasetInput(), input$plot_brush)
         
-    }, filter = 'top', rownames = FALSE)
+    })
     
     
 
