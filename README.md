@@ -1,4 +1,4 @@
-Note:  To view this app on the web, go to:  https://kurlare.shinyapps.io/dashboard
+#Note:  To view this app on the web, go to:  https://kurlare.shinyapps.io/dashboard
 
 To run the app, create a new directory (i.e. 'campdashboard app') and place the files there.
 Open RStudio and set your working directory to "C:/.../campdashboard app".  
@@ -9,12 +9,12 @@ Finally, open server.R or ui.R in RStudio, and click on the drop down menu for t
 and the App should load.  Have fun!
 
 
+
 Credits:
+The download filtered data button was created using code from
+Yihui Xie. 
+Link here:  https://groups.google.com/forum/#!topic/shiny-discuss/r-4stY3xTy0
 
-## The download filtered data button was created using code from
-## Yihui Xie. 
-## Link here:  https://groups.google.com/forum/#!topic/shiny-discuss/r-4stY3xTy0
-
-## The regression model output code is from this answer on StackOverflow:
-## http://stackoverflow.com/questions/18762962/passing-variable-names-to-model-in-shiny-app
+The regression model output code is from this answer on StackOverflow:
+http://stackoverflow.com/questions/18762962/passing-variable-names-to-model-in-shiny-app
 
